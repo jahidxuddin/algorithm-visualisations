@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "./App";
 import RootLayout from "@/layouts/RootLayout";
+import Menu from "@/pages/Menu";
+import Visualize from "@/pages/Visualize";
 
 const router = createBrowserRouter([
   {
@@ -9,8 +10,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <App />,
+        element: <Menu />,
       },
+      {
+        path: "/visualize/:algorithmn",
+        element: <Visualize />
+      }
     ],
   },
 ]);

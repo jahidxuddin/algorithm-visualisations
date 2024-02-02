@@ -1,13 +1,13 @@
-import useTheme from "@/hooks/useTheme";
-import Header from "@/components/menu/Header";
+import Header from "@/components/layout/Header";
+import { useTheme } from "@/contexts/ThemeContext";
 import { Outlet } from "react-router-dom";
 
 export default function RootLayout() {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { isDarkMode } = useTheme();
 
   return (
     <div className={`${isDarkMode && "dark"}`}>
-      <Header toggleTheme={toggleTheme} />
+      <Header />
       <Outlet />
     </div>
   );

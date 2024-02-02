@@ -1,6 +1,6 @@
-import AlgorithmList from "@/components/menu/AlgorithmList";
+import AlgorithmList from "@/components/page/menu/AlgorithmList";
 
-function App() {
+export default function Menu() {
   return (
     <main className="min-h-screen w-full bg-background text-text flex flex-col justify-center items-center gap-10 p-24">
       <div className="h-48 flex justify-center items-center">
@@ -12,5 +12,3 @@ function App() {
     </main>
   );
 }
-
-export default App;
