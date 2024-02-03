@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 export default function AlgorithmList() {
   return (
-    <div className="w-full h-full grid grid-cols-3 gap-5">
+    <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {algorithmCardList.map((card, i) => (
         <Card
           key={i}
@@ -25,7 +25,7 @@ export default function AlgorithmList() {
           </CardContent>
           <CardFooter>
             <Link to={card.link} className="w-full">
-              <Button className="bg-accent font-medium w-full text-xl">
+              <Button className="bg-accent font-bold w-full text-xl">
                 Visualize
               </Button>
             </Link>
