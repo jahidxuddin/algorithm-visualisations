@@ -21,7 +21,7 @@ const bubbleSort = (
 const selectionSort = (
   array: number[],
   updateFn: (newState: TData[]) => void
-) => {
+): number[] => {
   for (let i = 0; i < array.length - 1; i++) {
     let min = i;
 
@@ -36,6 +36,8 @@ const selectionSort = (
     array[i] = tmp;
     updateFn(array.map((e) => ({ name: e.toString(), uv: e })));
   }
+
+  return array;
 };
 
 export { bubbleSort, selectionSort };

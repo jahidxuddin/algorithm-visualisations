@@ -1,5 +1,5 @@
 import { TData } from "@/components/page/visualize/AlgorithmChart";
-import { bubbleSort } from "@/lib/sorting";
+import { bubbleSort, selectionSort } from "@/lib/sorting";
 
 type TAlgorithmCard = {
   title: string;
@@ -24,7 +24,7 @@ const algorithmCardList: TAlgorithmCard[] = [
     description:
       "Selection sort is a straightforward sorting algorithm that works by dividing the input list into two parts: a sorted sublist and an unsorted sublist. It repeatedly selects the smallest (or largest, depending on sorting order) element from the unsorted sublist and swaps it with the leftmost unsorted element. This process continues until the entire list is sorted.",
     link: "/visualize/selection-sort",
-    algorithmFn: bubbleSort,
+    algorithmFn: selectionSort,
   },
 ];
 

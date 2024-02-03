@@ -53,7 +53,7 @@ export default function AlgorithmChart({
 
   return (
     <div className="flex flex-col justify-between h-full">
-      <ResponsiveContainer width="100%" height={450} maxHeight={480}>
+      <ResponsiveContainer width="100%" height={450} maxHeight={450}>
         <BarChart data={dataState}>
           <XAxis dataKey="name" />
           <YAxis />
