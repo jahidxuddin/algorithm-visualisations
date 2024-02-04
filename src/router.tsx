@@ -13,7 +13,7 @@ const router = createBrowserRouter([
         element: <Menu />,
       },
       {
-        path: "/visualize/:algorithmn",
+        path: "/visualize/:algorithm",
         element: <Visualize />
       }
     ],

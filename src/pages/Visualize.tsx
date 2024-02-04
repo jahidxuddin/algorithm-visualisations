@@ -10,7 +10,7 @@ export default function Visualize() {
   }
 
   const algorithmTitles = algorithmCardList.map(
-    (algorithmn) => algorithmn.title
+    (algorithm) => algorithm.title
   );
 
   const algorithmTitle = algorithm
