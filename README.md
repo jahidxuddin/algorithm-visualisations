@@ -1,3 +1,3 @@
 # Algorithm Visualisations
 
-A tool to visualize algorithms build with React and Tailwind CSS.
+A tool build with React and Tailwind CSS. to visualize algorithms 
