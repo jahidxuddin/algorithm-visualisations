@@ -32,7 +32,7 @@ export default function Visualize() {
   }
 
   return (
-    <main className="h-screen w-full bg-background text-text py-20 px-10 sm:p-24">
+    <main className="min-h-screen w-full bg-background text-text py-20 px-10 sm:p-24">
       <div className="h-full flex flex-col gap-10">
         <h1 className="text-5xl font-extrabold">{algorithmnTitle}</h1>
         <AlgorithmChart algorithmFn={algorithmFn!} />

@@ -7,8 +7,8 @@ type TAlgorithmCard = {
   link: string;
   algorithmFn: (
     array: number[],
-    updateFn: (newState: TData[]) => void
-  ) => number[];
+    updateFn: React.Dispatch<React.SetStateAction<TData[]>>
+  ) => void;
 };
 
 const algorithmCardList: TAlgorithmCard[] = [

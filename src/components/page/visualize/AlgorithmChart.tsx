@@ -1,11 +1,11 @@
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 import { Button } from "../../ui/button";
 import { useEffect, useState } from "react";
-import { ButtonLoading } from "@/components/ui/button-loading";
 
 export type TData = {
   name: string;
   uv: number;
+  fill: string;
 };
 
 function getRandomNumber(min: number, max: number): number {
@@ -17,8 +17,8 @@ export default function AlgorithmChart({
 }: {
   algorithmFn: (
     array: number[],
-    updateFn: (newState: TData[]) => void
-  ) => number[];
+    updateFn: React.Dispatch<React.SetStateAction<TData[]>>
+  ) => void;
 }) {
   const [dataState, setDataState] = useState<TData[]>([]);
   const [loading, setLoading] = useState(false);
@@ -29,16 +29,15 @@ export default function AlgorithmChart({
         dataState.map((e) => e.uv),
         setDataState
       );
-      setLoading(false);
     }
   }, [loading]);
 
   const handleAddClick = () => {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 25; i++) {
       const randomNumber = getRandomNumber(1, 100);
       setDataState((prevDataState) => [
         ...prevDataState,
-        { name: randomNumber.toString(), uv: randomNumber },
+        { name: randomNumber.toString(), uv: randomNumber, fill: "#1a4774" },
       ]);
     }
   };
@@ -57,7 +56,7 @@ export default function AlgorithmChart({
         <BarChart data={dataState}>
           <XAxis dataKey="name" />
           <YAxis />
-          <Bar dataKey="uv" fill="#1a4774" barSize={30} />
+          <Bar dataKey="uv" barSize={30} />
         </BarChart>
       </ResponsiveContainer>
       <div className="flex flex-col gap-3">
@@ -66,18 +65,18 @@ export default function AlgorithmChart({
           onClick={handleAddClick}
           className="font-bold"
         >
-          Add 100 records
+          Add 25 records
         </Button>
-        {!loading && (
-          <Button onClick={handleStartClick} className="font-bold">
-            Start
-          </Button>
-        )}
-        {loading && (
-          <ButtonLoading className="font-bold">Computing...</ButtonLoading>
-        )}
+        <Button
+          disabled={loading}
+          onClick={handleStartClick}
+          className="font-bold"
+        >
+          Start
+        </Button>
         {dataState.length > 1 && (
           <Button
+            disabled={loading}
             onClick={handleResetClick}
             className="font-bold"
             variant="destructive"
