@@ -17,7 +17,8 @@ export default function AlgorithmChart({
 }: {
   algorithmFn: (
     array: number[],
-    updateFn: React.Dispatch<React.SetStateAction<TData[]>>
+    updateFn: React.Dispatch<React.SetStateAction<TData[]>>,
+    updateLoadingState: React.Dispatch<React.SetStateAction<boolean>>
   ) => void;
 }) {
   const [dataState, setDataState] = useState<TData[]>([]);
@@ -27,7 +28,8 @@ export default function AlgorithmChart({
     if (loading) {
       algorithmFn(
         dataState.map((e) => e.uv),
-        setDataState
+        setDataState,
+        setLoading
       );
     }
   }, [loading]);
