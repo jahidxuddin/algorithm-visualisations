@@ -9,7 +9,7 @@ export default function Header() {
     <header className="w-full h-12 fixed bg-secondary z-10">
       <div className="px-10 lg:px-10 max-w-2xl sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl h-full mx-auto flex justify-between items-center">
         <Link to="/" className=" text-base sm:text-lg text-primary font-extrabold">
-          Algorithmn Visualisations
+          Algorithm Visualisations
         </Link>
         <button onClick={toggleTheme}>
           <img
