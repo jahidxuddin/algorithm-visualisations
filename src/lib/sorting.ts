@@ -90,7 +90,6 @@ const insertionSort = async (
     const currentElement = array[i];
     let j = i - 1;
 
-    // Visualize the current comparison
     updateFn((_prevState) =>
       array.map((e, k) => ({
         name: e.toString(),
@@ -99,14 +98,12 @@ const insertionSort = async (
       }))
     );
 
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 0.1));
 
-    // Shift elements to the right until the correct position is found
     while (j >= 0 && array[j] > currentElement) {
       array[j + 1] = array[j];
       j--;
 
-      // Visualize the shifting process
       updateFn((_prevState) =>
         array.map((e, k) => ({
           name: e.toString(),
@@ -115,13 +112,11 @@ const insertionSort = async (
         }))
       );
 
-      await new Promise((resolve) => setTimeout(resolve, 100));
+      await new Promise((resolve) => setTimeout(resolve, 0.1));
     }
 
-    // Place the current element in its correct position
     array[j + 1] = currentElement;
 
-    // Reset visualization
     updateFn((_prevState) =>
       array.map((e) => ({
         name: e.toString(),
@@ -130,10 +125,9 @@ const insertionSort = async (
       }))
     );
 
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 0.1));
   }
 
-  // Signal that sorting is complete
   updateLoadingState(false);
 };
 
