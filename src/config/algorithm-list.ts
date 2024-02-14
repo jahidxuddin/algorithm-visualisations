@@ -40,10 +40,10 @@ const algorithmCardList: TAlgorithmCard[] = [
     algorithmFn: insertionSort,
   },
   {
-    title: "Quicksort",
+    title: "Quick Sort",
     description:
-      "Quicksort is an efficient sorting algorithm that follows the divide-and-conquer strategy. It selects a 'pivot' element from the array and partitions the other elements into two sub-arrays according to whether they are less than or greater than the pivot. It then recursively sorts the sub-arrays. The process continues until the entire array is sorted.",
-    link: "/visualize/quicksort",
+      "Quick Sort is an efficient sorting algorithm that follows the divide-and-conquer strategy. It selects a 'pivot' element from the array and partitions the other elements into two sub-arrays according to whether they are less than or greater than the pivot. It then recursively sorts the sub-arrays. The process continues until the entire array is sorted.",
+    link: "/visualize/quick-sort",
     algorithmFn: quicksort,
   },
 ];
