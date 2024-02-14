@@ -1,5 +1,5 @@
 import { TData } from "@/components/page/visualize/AlgorithmChart";
-import { bubbleSort, selectionSort } from "@/lib/sorting";
+import { bubbleSort, insertionSort, selectionSort } from "@/lib/sorting";
 
 type TAlgorithmCard = {
   title: string;
@@ -26,6 +26,13 @@ const algorithmCardList: TAlgorithmCard[] = [
       "Selection sort is a straightforward sorting algorithm that works by dividing the input list into two parts: a sorted sublist and an unsorted sublist. It repeatedly selects the smallest (or largest, depending on sorting order) element from the unsorted sublist and swaps it with the leftmost unsorted element. This process continues until the entire list is sorted.",
     link: "/visualize/selection-sort",
     algorithmFn: selectionSort,
+  },
+  {
+    title: "Insertion Sort",
+    description:
+      "Insertion Sort is a straightforward sorting algorithm that builds the final sorted list one element at a time. It iterates through the list, considering one element at a time and inserting it into its correct position within the already sorted part of the list. This process continues until the entire list is sorted.",
+    link: "/visualize/insertion-sort",
+    algorithmFn: insertionSort,
   },
 ];
 

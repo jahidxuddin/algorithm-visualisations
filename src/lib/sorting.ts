@@ -81,4 +81,60 @@ const selectionSort = async (
   updateLoadingState(false);
 };
 
-export { bubbleSort, selectionSort };
+const insertionSort = async (
+  array: number[],
+  updateFn: React.Dispatch<React.SetStateAction<TData[]>>,
+  updateLoadingState: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  for (let i = 1; i < array.length; i++) {
+    const currentElement = array[i];
+    let j = i - 1;
+
+    // Visualize the current comparison
+    updateFn((_prevState) =>
+      array.map((e, k) => ({
+        name: e.toString(),
+        uv: e,
+        fill: k === i || k === j ? Fill.HIGHLIGHTED : Fill.DEFAULT,
+      }))
+    );
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
+    // Shift elements to the right until the correct position is found
+    while (j >= 0 && array[j] > currentElement) {
+      array[j + 1] = array[j];
+      j--;
+
+      // Visualize the shifting process
+      updateFn((_prevState) =>
+        array.map((e, k) => ({
+          name: e.toString(),
+          uv: e,
+          fill: k === j + 1 ? Fill.HIGHLIGHTED : Fill.DEFAULT,
+        }))
+      );
+
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
+
+    // Place the current element in its correct position
+    array[j + 1] = currentElement;
+
+    // Reset visualization
+    updateFn((_prevState) =>
+      array.map((e) => ({
+        name: e.toString(),
+        uv: e,
+        fill: Fill.DEFAULT,
+      }))
+    );
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
+  }
+
+  // Signal that sorting is complete
+  updateLoadingState(false);
+};
+
+export { bubbleSort, selectionSort, insertionSort };
