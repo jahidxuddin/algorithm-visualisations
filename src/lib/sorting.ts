@@ -131,4 +131,72 @@ const insertionSort = async (
   updateLoadingState(false);
 };
 
-export { bubbleSort, selectionSort, insertionSort };
+const quicksort = async (
+  array: number[],
+  updateFn: React.Dispatch<React.SetStateAction<TData[]>>,
+  updateLoadingState: React.Dispatch<React.SetStateAction<boolean>>
+) => {
+  const partition = (arr: number[], low: number, high: number): number => {
+    const pivot = arr[high];
+    let i = low - 1;
+
+    for (let j = low; j < high; j++) {
+      if (arr[j] <= pivot) {
+        i++;
+        swap(arr, i, j);
+      }
+    }
+
+    swap(arr, i + 1, high);
+    return i + 1;
+  };
+
+  const swap = (arr: number[], i: number, j: number) => {
+    const temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  };
+
+  const recursiveSort = async (arr: number[], low: number, high: number) => {
+    if (low < high) {
+      const pivot = partition(arr, low, high);
+      await updateVisualization(arr, pivot, low, high);
+      await recursiveSort(arr, low, pivot - 1);
+      await recursiveSort(arr, pivot + 1, high);
+    }
+  };
+
+  const updateVisualization = async (
+    arr: number[],
+    pivot: number,
+    low: number,
+    high: number
+  ) => {
+    updateFn((_prevState) =>
+      arr.map((e, k) => ({
+        name: e.toString(),
+        uv: e,
+        fill:
+          k === pivot || (k >= low && k <= high)
+            ? Fill.HIGHLIGHTED
+            : Fill.DEFAULT,
+      }))
+    );
+
+    await new Promise((resolve) => setTimeout(resolve, 0.1));
+  };
+
+  await recursiveSort(array, 0, array.length - 1);
+
+  updateFn((_prevState) =>
+    array.map((e) => ({
+      name: e.toString(),
+      uv: e,
+      fill: Fill.DEFAULT,
+    }))
+  );
+
+  updateLoadingState(false);
+};
+
+export { bubbleSort, selectionSort, insertionSort, quicksort };

@@ -1,5 +1,10 @@
 import { TData } from "@/components/page/visualize/AlgorithmChart";
-import { bubbleSort, insertionSort, selectionSort } from "@/lib/sorting";
+import {
+  bubbleSort,
+  insertionSort,
+  quicksort,
+  selectionSort,
+} from "@/lib/sorting";
 
 type TAlgorithmCard = {
   title: string;
@@ -33,6 +38,13 @@ const algorithmCardList: TAlgorithmCard[] = [
       "Insertion Sort is a straightforward sorting algorithm that builds the final sorted list one element at a time. It iterates through the list, considering one element at a time and inserting it into its correct position within the already sorted part of the list. This process continues until the entire list is sorted.",
     link: "/visualize/insertion-sort",
     algorithmFn: insertionSort,
+  },
+  {
+    title: "Quicksort",
+    description:
+      "Quicksort is an efficient sorting algorithm that follows the divide-and-conquer strategy. It selects a 'pivot' element from the array and partitions the other elements into two sub-arrays according to whether they are less than or greater than the pivot. It then recursively sorts the sub-arrays. The process continues until the entire array is sorted.",
+    link: "/visualize/quicksort",
+    algorithmFn: quicksort,
   },
 ];
 
